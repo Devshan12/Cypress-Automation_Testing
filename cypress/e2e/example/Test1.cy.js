@@ -9,6 +9,7 @@ describe('Test Suite', () => {
     //  cy.get('.product:visible').should('have.length',4)
     cy.get('.products').find('.product').should('have.length',4)
     cy.get('.products').find('.product').eq(2).contains('ADD TO CART').click()
+    console.log('sf')
 
     // Add to cart item by it's include name
     cy.get('.products').find('.product').each(($el, index, $list) => {
@@ -16,8 +17,20 @@ describe('Test Suite', () => {
       const textName = $el.find('h4.product-name').text()
       if(textName.includes('Cashews')){
 
+
       $el.find('button').click()
       }
     })
+ //Take the logo title
+
+    cy.get('.brand').then(function(logoelement)
+{
+  cy.log(logoelement.text())
+
+})
+//cy.log(logoelement.text())
+
+
   })
 })
+
