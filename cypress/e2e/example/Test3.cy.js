@@ -19,5 +19,13 @@ describe('Test Suite', () => {
     cy.get('fieldset:contains("Checkbox Example")').find('input[type="checkbox"]').check(['option2','option3']).should('be.checked')
 
     cy.get('select').select('option2').should('have.value','option2')
+    cy.get('#autocomplete').type('ind')
+    cy.get('.ui-menu-item div').each(($el, index, $list) => {
+      if ($el.text().includes("India")) {
+        cy.wait(1000); // Adjust the wait time as needed (in milliseconds)
+        $el.click();
+      }
+    })
+    
   })
 })
