@@ -33,8 +33,8 @@ describe('Test Suite', () => {
     cy.get('#show-textbox').click()
     cy.get('#displayed-text').should('be.visible')
 
+    // radio buttons
+    cy.get('[value="radio1"]').check().should('be.checked')
 
-
-    
   })
 })
